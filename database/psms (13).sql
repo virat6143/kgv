@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2019 at 08:10 PM
+-- Generation Time: Nov 21, 2019 at 05:53 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -38,7 +38,7 @@ CREATE TABLE `adminlog` (
 --
 
 INSERT INTO `adminlog` (`id`, `username`, `password`, `email`) VALUES
-(1, 'વિરાટ ', '123456', 'virat@aau.in');
+(1, 'વિરાટ ', '123456', 'viratchaudharycv6143@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE `adversitment` (
 --
 
 INSERT INTO `adversitment` (`a_id`, `txtFDt`, `cashad`, `pname`, `adinfo`, `adprice`) VALUES
-(22, '2019-10-24', '1', 'વિરાટ ', 'પોસ્ટર ૧૦૦૦', '7000');
+(23, '2019-11-15', 'DEE:10', 'અશોક ભાઈ', 'પોસ્ટર ૫૦ PX', '1100');
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`b_id`, `bname`, `bsr`, `bno`, `bbh`, `date`, `bstatus`, `printing`, `p_date`, `total_bookno`, `total_kharch`, `status`) VALUES
-(47, 'સજીવ ખેતી ', '1', '100', '60', '24/10/2019', '1', 'Anand Agricultural Printing', '2019-10-24', '1000', '6600', 0);
+(49, 'સજીવ ખેતી', 'DEE:1410', '100', '60', '15/11/2019', '1', 'prisim printing ', '2019-11-15', '1000', '10000', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE `receipt` (
 --
 
 INSERT INTO `receipt` (`r_id`, `r_date`, `memo_type`, `memo_no`, `cust_name`, `cust_village`, `cust_addr`, `cust_mob`, `total_amount`, `cust_dist`, `cust_tal`) VALUES
-(3, '2019-10-22', 'રોકડ', '1', 'રમન ', 'અમદાવાદ ', 'અમદાવાદ ', '8744555555', '430', '1', '1');
+(7, '2019-11-21', 'રોકડ', '1', 'રમન ભાઈ ', 'અમદાવાદ ', 'અમદાવાદ ', '8444444444', '350', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -188,8 +188,8 @@ CREATE TABLE `receipt_details` (
 --
 
 INSERT INTO `receipt_details` (`rd_id`, `r_id`, `b_id`, `book_qut`, `price`, `sub_to`, `postal_charge`) VALUES
-(5, 3, 45, '5', '60', 300, 0),
-(6, 3, 46, '2', '60', 130, 10);
+(13, 7, 49, '2', '60', 120, 0),
+(14, 7, 49, '3', '60', 230, 50);
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,7 @@ CREATE TABLE `subscriber` (
   `sub_rec` varchar(100) NOT NULL,
   `sub_no` varchar(100) NOT NULL,
   `sub_name` varchar(100) NOT NULL,
-  `sub_type` varchar(50) NOT NULL,
+  `sub_type` varchar(50) NOT NULL DEFAULT '0',
   `sub_start` varchar(50) CHARACTER SET latin1 NOT NULL,
   `sub_end` varchar(50) CHARACTER SET latin1 NOT NULL,
   `sub_addr` varchar(200) NOT NULL,
@@ -212,7 +212,7 @@ CREATE TABLE `subscriber` (
   `sub_village` varchar(50) NOT NULL,
   `sub_pincode` varchar(6) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
-  `sdatee` varchar(20) NOT NULL
+  `sdatee` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -220,7 +220,8 @@ CREATE TABLE `subscriber` (
 --
 
 INSERT INTO `subscriber` (`sub_id`, `sub_rec`, `sub_no`, `sub_name`, `sub_type`, `sub_start`, `sub_end`, `sub_addr`, `sub_mob`, `sub_district`, `sub_taluka`, `sub_village`, `sub_pincode`, `status`, `sdatee`) VALUES
-(1, '1', '1234', 'વિરાટ ', '૧ વર્ષ', '2019/10', '2020/9', 'સાયરા ', '8141036462', '4', '29', 'સાયરા ', '383315', 0, '2019-10-24');
+(16, '2', '3', 'સંદીપ', '૧ વર્ષ', '2019/11', '2020/10', 'જસદણ  પાવી ', '9855244444', '9', '73', 'પાવી જેતપુર ', '355544', 0, '2019-11-16'),
+(17, '2', '4', 'વિરાટ ચૌધરી ', '૧ વર્ષ', '2019/11', '2020/10', 'સાયરા ', '8141036462', '4', '29', 'સાયરા ', '383315', 0, '2019-11-21');
 
 -- --------------------------------------------------------
 
@@ -512,7 +513,8 @@ CREATE TABLE `userreg` (
 --
 
 INSERT INTO `userreg` (`u_id`, `uname`, `uadd`, `district`, `t_name`, `v_name`, `pin`, `umob`, `upassword`, `uem`, `status`) VALUES
-(57, 'રવિ રામની ', 'જસદણ ', '27', '207', 'જસદણ ', '366666', '9016625517', '123456', 'raviramani406@gmail.com', 1);
+(57, 'રવિ રામની ', 'જસદણ ', '27', '207', 'જસદણ ', '366666', '9016625517', '123456', 'raviramani406@gmail.com', 1),
+(61, 'કેશવ પટેલ ', 'દાંતીવાડા કૃષિ યુનિવર્સિટી ', '5', '40', 'દાંતીવાડા ', '363333', '9685666666', 'keshav', 'keshav@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -615,12 +617,12 @@ ALTER TABLE `adminlog`
 -- AUTO_INCREMENT for table `adversitment`
 --
 ALTER TABLE `adversitment`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `district`
 --
@@ -630,17 +632,17 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `receipt_details`
 --
 ALTER TABLE `receipt_details`
-  MODIFY `rd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `rd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `subscriber`
 --
 ALTER TABLE `subscriber`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `taluka`
 --
@@ -650,7 +652,7 @@ ALTER TABLE `taluka`
 -- AUTO_INCREMENT for table `userreg`
 --
 ALTER TABLE `userreg`
-  MODIFY `u_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `u_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `village`
 --
