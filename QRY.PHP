@@ -1,0 +1,1 @@
+SELECT * FROM `subscriber` INNER JOIN district ON district.d_id=subscriber.d_id INNER JOIN taluka ON taluka.t_id=subscriber.t_id;
