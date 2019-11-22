@@ -58,7 +58,7 @@ include 'head.php';
 
 					$rs=mysqli_query($con,$qry);
 					$count=1;
-					echo "<td align='right'>તારીખ : ".$date."</td>";
+					echo "<div style='text-align:right;width:73%'><b>તારીખ : ".$date."</b></div>";
 					echo "<table class='table table-bordered' >";
 					echo "<thead style='background-color:orange;color:#000000;'><tr><th>અ.નં.</th><th>માલની વિગત</th><th>બુકનો ભાવ(રૂપિયા)</th><th>જથ્થો/નંગ</th><th>પોસ્ટલ ચાર્જ</th><th>ટોટલ ભાવ(રૂપિયા)</th></tr></thead>";
 					$data=0;

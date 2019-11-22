@@ -566,12 +566,10 @@ include 'head.php';
 			var submob=$('#submob'+id1).text();
 			var subvill=$('#subvill'+id1).text();
 			var subpin=$('#subpin'+id1).text();
-			//var subty=$('#subty'+id1).text();
+			var subty=$('#subty'+id1).text();
             var substart=$('#substart'+id1).text();
             var subend=$('#subend'+id1).text();
-          
-
-            $('input:radio[name=sub_type1]')[0].checked = true;
+         
 
 			$('#sub_rec1').val(sid);
 			$('#sub_no1').val(subno);
@@ -580,7 +578,17 @@ include 'head.php';
 			$('#sub_mob1').val(submob);
 			$('#sub_village1').val(subvill);
 			$('#sub_pincode1').val(subpin);
-			//$('#sub_type1').val(subty);
+		
+
+		if(subty=="૫ વર્ષ")
+		{
+			$('input[name="sub_type1"][value="૫ વર્ષ"]').attr('checked', true);
+		}else
+		{
+			$('input[name="sub_type1"][value="૧ વર્ષ"]').attr('checked', true);
+		}
+		
+			
 			$('#sub_start1').val(substart);
 			$('#sub_end1').val(subend);
 			$('#vccc').val(id1);

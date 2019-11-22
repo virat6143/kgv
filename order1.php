@@ -12,7 +12,7 @@ $cust_add=$_POST["cust_addr"];
 $custt_mob=$_POST["cust_mob"];
 $sub_tot=$_POST["sub_total"];
 $p_charge=$_POST["postal_charge"];
-echo " total alll ".$tot=$_POST["total_amount"];
+$tot=$_POST["total_amount"];
 $b_qut=$_POST["book_qut"];
 $b_price=$_POST["price"];
 
@@ -21,6 +21,9 @@ $bid=$_POST["bname"];
 $stok=$_POST["stock"];
 
 $limit = count($b_qut);
+
+
+
 
  $qry="insert into receipt(r_date,memo_type,memo_no,cust_name,cust_village,cust_addr,cust_mob,total_amount,cust_dist,cust_tal) VALUES ('$d_date','$m_type','$m_no','$custt_name','$village_1','$cust_add','$custt_mob','$tot','$dist_1','$taluka_1')";
  
@@ -32,11 +35,18 @@ $limit = count($b_qut);
 
 for($i=0;$i<$limit;$i++)
 {
+	echo $i;
 	
  	$qry2="insert into receipt_details(r_id,b_id,book_qut,price,sub_to,postal_charge) VALUES ('$last_id','$bid[$i]','$b_qut[$i]','$b_price[$i]','$sub_tot[$i]','$p_charge[$i]')";
 
- 	echo $qry2;
+ 	//echo $qry2;
+ 		$ab=$stok[$i] - $b_qut[$i] ;
+
+ 		$qq="update  book  set bno='$ab' where b_id='".$bid[$i]."'";
+ 		
+
  	$w=mysqli_query($con,$qry2);
+ 	$www=mysqli_query($con,$qq);
 
 }
 
