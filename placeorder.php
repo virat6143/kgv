@@ -212,14 +212,14 @@ function fill_book($con)
 		</b>
 		<div class="col-sm-12">
 
-			<input type="radio" name="memo_type" id="memo_type" onclick="block(1)" value="રોકડ" style="width: 15px;height: 15px;"> રોકડ &nbsp;
-			<input type="radio" name="memo_type" id="memo_type" onclick="block(2)" value="ક્રેડિટ" style="width: 15px;height: 15px;"> ક્રેડિટ &nbsp;
-			<input type="radio" name="memo_type" id="memo_type" onclick="block(3)" value="ગિફ્ટ" style="width: 15px;height: 15px;"> ગિફ્ટ &nbsp;
+			<input type="radio" name="memo_type" id="memo_type" onclick="block(1)" value="Cash" style="width: 15px;height: 15px;"> Cash &nbsp;
+			<input type="radio" name="memo_type" id="memo_type" onclick="block(2)" value="Credit" style="width: 15px;height: 15px;"> Credit &nbsp;
+			<input type="radio" name="memo_type" id="memo_type" onclick="block(3)" value="Gift" style="width: 15px;height: 15px;"> Gift &nbsp;
 			
 		</div>
 	</div>
 	<div class="form-group" id="vk" style="display: block;">
-		<b><label for="mno"  style="color:orange" class="col-sm-3">રોકડ/ક્રેડિટ મેમો નંબર</label></b>
+		<b><label for="mno"  style="color:orange" class="col-sm-3">મેમો નંબર</label></b>
 		<div class="col-sm-12">
 			<input type="text" class="form-control" id="memo_no" name="memo_no" placeholder="મેમો નંબર" autocomplete="off" />
 		</div>

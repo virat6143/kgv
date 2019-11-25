@@ -48,6 +48,13 @@ include 'head.php';
 		if($("#bnam1").length){
 			control.makeTransliteratable(['bnam1']);
 		}
+		if($("#pri11").length){
+			control.makeTransliteratable(['pri11']);
+		}
+		if($("#printing11").length){
+			control.makeTransliteratable(['printing11']);
+		}
+
 
 		
 		
@@ -88,12 +95,17 @@ include 'head.php';
 					if (isset($_GET["success"]))
 						echo "<div class='alert alert-success alert-dismissible fade show'>
 					<button type='button' class='close' data-dismiss='alert'>&times;</button>
-					<strong>સફ્રતાપૂર્વક બુકની માહિતી નંખાઈ ગઈ છે</strong> 
+					<strong>અભિનંદન!!! સફ્રતાપૂર્વક બુકની માહિતી નંખાઈ ગઈ છે.</strong> 
 				</div>";
 				if (isset($_GET["arr"]))
 					echo "<div class='alert alert-success alert-dismissible fade show'>
 				<button type='button' class='close' data-dismiss='alert'>&times;</button>
-				<strong>સુધારો સફળતાપૂર્વક થઇ ગયો છે</strong> 
+				<strong>અભિનંદન!!! સુધારો સફળતાપૂર્વક થઇ ગયો છે.</strong> 
+			</div>";
+				if (isset($_GET["delete"]))
+					echo "<div class='alert alert-danger alert-dismissible fade show'>
+				<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				<strong>સફ્રતાપૂર્વક બુકની માહિતી રદ્દ થઇ ગઈ છે.</strong> 
 			</div>";
 			?>
 
@@ -103,12 +115,12 @@ include 'head.php';
 					<i class="fa fa-plus"></i>  અહીં ક્લિક કરો
 				</button>
 			</div>
-				<center>
+			<center>
 				<a href="bookinfo.php">
-						<h3><span class="badge badge-info">બુકની માહિતી જુઓ</h3>	
-						<span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
-					</a>
-				</center>
+					<h3><span class="badge badge-info">બુકની માહિતી જુઓ</h3>	
+					<span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+				</a>
+			</center>
 			<div class="a" style="text-align: right;">
 				<b><label>શોધો:</label></b>
 				<input type="text" id="myInputTextField">
@@ -237,7 +249,7 @@ include 'head.php';
 					</div>
 					<div class="form-group">
 						<b><label for="bb"  style="color: #ff8000">પ્રિન્ટિંગ તારીખ:</label></b>
-						<input type="date" id="pdtt1" name="p_date" class="form-control" placeholder="પ્રિન્ટિંગ ની તારીખ"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ ની તારીખ ')" required  onchange="try{setCustomValidity('')}catch(e){}" />
+						<input type="date" id="pdtt1" name="p_date" class="form-control" placeholder="પ્રિન્ટિંગ ની તારીખ"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ ની તારીખ ')" max='<?=date("Y-m-d")?>'  required  onchange="try{setCustomValidity('')}catch(e){}" />
 					</div>
 					<div class="form-group">
 						<b><label for="bb" style="color: #ff8000">પ્રિન્ટિંગમાં મુકેલ બુકની સંખ્યા:</label></b>
@@ -306,11 +318,11 @@ include 'head.php';
 				</div>
 				<div class="form-group">
 					<b><label for="print" style="color: #ff8000">પ્રિન્ટિંગ કામગીરી કરાવેલ પાર્ટીનું નામ:</label></b>
-					<input type="text" name="printing" class="form-control" placeholder="પ્રિન્ટિંગ કામગીરી કરાવેલ પાર્ટીનું નામ નાખો"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ કામગીરી કરાવેલ પાર્ટીનું નામ નાખો')" required  onchange="try{setCustomValidity('')}catch(e){}" onkeypress="return onKeyValidate(event,alpha);" />
+					<input type="text" name="printing" id="printing11" class="form-control" placeholder="પ્રિન્ટિંગ કામગીરી કરાવેલ પાર્ટીનું નામ નાખો"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ કામગીરી કરાવેલ પાર્ટીનું નામ નાખો')" required  onchange="try{setCustomValidity('')}catch(e){}" onkeypress="return onKeyValidate(event,alpha);" />
 				</div>
 				<div class="form-group">
 					<b><label for="bb" style="color: #ff8000">પ્રિન્ટિંગ તારીખ:</label></b>
-					<input type="date" name="p_date" class="form-control" placeholder="પ્રિન્ટિંગ ની તારીખ"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ ની તારીખ ')" required  onchange="try{setCustomValidity('')}catch(e){}" />
+					<input type="date" name="p_date" class="form-control" placeholder="પ્રિન્ટિંગ ની તારીખ"  oninvalid="this.setCustomValidity('પ્રિન્ટિંગ ની તારીખ ')" max='<?=date("Y-m-d")?>'  required  onchange="try{setCustomValidity('')}catch(e){}" />
 				</div>
 				<div class="form-group">
 					<b><label for="bb" style="color: #ff8000">પ્રિન્ટિંગમાં મુકેલ બુકની સંખ્યા:</label></b>

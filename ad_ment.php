@@ -152,80 +152,86 @@ include 'head.php';
 				</div>";
 				if (isset($_GET["arr"]))
 					echo "<div class='alert alert-success alert-dismissible fade show'>
-				 <button type='button' class='close' data-dismiss='alert'>&times;</button>
-				 <strong>અભિનંદન!!! સુધારો સફળતાપૂર્વક થઇ ગયો છે</strong> 
-			     </div>";
-			?>
+				<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				<strong>અભિનંદન!!! સુધારો સફળતાપૂર્વક થઇ ગયો છે</strong> 
+			</div>";
+			if (isset($_GET["delete"]))
+				echo "<div class='alert alert-danger alert-dismissible fade show'>
+			<button type='button' class='close' data-dismiss='alert'>&times;</button>
+			<strong>સફ્રતાપૂર્વક માહિતી રદ્દ થઇ ગઈ છે.</strong> 
+		</div>";
 
-			<div class="div-action pull pull-left" style="padding-bottom:20px;">
-				<h5 style="color: orange;"><b>જાહેરાત આપનાર અંગેની માહિતી નાખવા</b></h5>
-				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-					<i class="fa fa-plus"></i>	અહીં ક્લિક કરો
-				</button>
-			</div>
-			<div class="alert">
-				<body>
-				 <center><h3><span class="badge badge-success">જાહેરાત અંગેની માહિતી જુઓ</span></h3></center>
-				</body>
+		?>
+
+		<div class="div-action pull pull-left" style="padding-bottom:20px;">
+			<h5 style="color: orange;"><b>જાહેરાત આપનાર અંગેની માહિતી નાખવા</b></h5>
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+				<i class="fa fa-plus"></i>	અહીં ક્લિક કરો
+			</button>
+		</div>
+		<div class="alert">
+			<body>
+				<center><h3><span class="badge badge-success">જાહેરાત અંગેની માહિતી જુઓ</span></h3></center>
+			</body>
 			
 			<div class="float-right" >
 				<b><label >શોધો : </label></b>
 				<input type="text" id="myInputTextField" class="form-control float-right">
 			</div> 	
-          </div>
-			<table class="table table-striped table-bordered" id="example1">
-				<thead style='background-color:#00bfff;color:#ffffff';>
-					<tr>
-						<th>ક્રમ</th>	
-						<th>પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ</th>						
-						<th>કેશ મેમો પાવતી નંબર</th>
-						<th>જાહેરાત આપનાર પાર્ટીનું નામ</th>
-						<th>જાહેરાત ની વિગત</th>
-						<th>જાહેરાત અંગેનો કુલ ખર્ચ</th>
-						<th>સુધારો કરો</th>
-						<th>રદ્દ કરો</th>
-
-					</tr>
-				</thead>
-
-				<?php
-				$qry="select * from adversitment";
-				$rs=mysqli_query($con,$qry);
-				$count=1;
-				while($data111=mysqli_fetch_assoc($rs))
-				{
-					echo "<tr>";
-					echo "<td><label>";
-					echo $count;
-					echo "</label></td>";
-					echo "<td><label id='FDT".$data111["a_id"]."'>";
-					echo $data111["txtFDt"];
-					echo "</label></td>";
-					echo "<td><label id='cash".$data111["a_id"]."'>";
-					echo $data111["cashad"];
-					echo "</label></td>";
-					echo "<td><label id='pname".$data111["a_id"]."'>";
-					echo $data111["pname"];
-					echo "</label></td>";
-					echo "<td><label id='adinfo".$data111["a_id"]."'>";
-					echo $data111["adinfo"];
-					echo "</label></td>";
-					echo "<td><label id='adprice".$data111["a_id"]."'>";
-					echo $data111["adprice"];
-					echo "</label></td>";
-
-					echo "<td><a class='bc' href='#' title='View' data-target='#myModal1' data-toggle='modal' data1='".$data111["a_id"]."' id='".$data111["a_id"]."'><i class='fas fa-edit' style='font-size:40px;'></i></a></td>";
-					
-					echo "<td><a href='ad_delet.php?id=".$data111["a_id"]."' onclick='return check();' style='font-size:40px;color:red'><i class='fa fa-trash'></i></a></td>";
-
-
-					echo "</tr>";	
-					$count++;
-				}
-				?>
-			</table>
 		</div>
-	</div> 
+		<table class="table table-striped table-bordered" id="example1">
+			<thead style='background-color:#00bfff;color:#ffffff';>
+				<tr>
+					<th>ક્રમ</th>	
+					<th>પ્રકાશિત થયેલ લેખની તારીખ</th>						
+					<th>કેશ મેમો પાવતી નંબર</th>
+					<th>જાહેરાત આપનાર પાર્ટીનું નામ</th>
+					<th>જાહેરાત ની વિગત</th>
+					<th>જાહેરાત અંગેનો કુલ ખર્ચ</th>
+					<th>સુધારો કરો</th>
+					<th>રદ્દ કરો</th>
+
+				</tr>
+			</thead>
+
+			<?php
+			$qry="select * from adversitment";
+			$rs=mysqli_query($con,$qry);
+			$count=1;
+			while($data111=mysqli_fetch_assoc($rs))
+			{
+				echo "<tr>";
+				echo "<td><label>";
+				echo $count;
+				echo "</label></td>";
+				echo "<td><label id='FDT".$data111["a_id"]."'>";
+				echo $data111["txtFDt"];
+				echo "</label></td>";
+				echo "<td><label id='cash".$data111["a_id"]."'>";
+				echo $data111["cashad"];
+				echo "</label></td>";
+				echo "<td><label id='pname".$data111["a_id"]."'>";
+				echo $data111["pname"];
+				echo "</label></td>";
+				echo "<td><label id='adinfo".$data111["a_id"]."'>";
+				echo $data111["adinfo"];
+				echo "</label></td>";
+				echo "<td><label id='adprice".$data111["a_id"]."'>";
+				echo $data111["adprice"];
+				echo "</label></td>";
+
+				echo "<td><a class='bc' href='#' title='View' data-target='#myModal1' data-toggle='modal' data1='".$data111["a_id"]."' id='".$data111["a_id"]."'><i class='fas fa-edit' style='font-size:40px;'></i></a></td>";
+
+				echo "<td><a href='ad_delet.php?id=".$data111["a_id"]."' onclick='return check();' style='font-size:40px;color:red'><i class='fa fa-trash'></i></a></td>";
+
+
+				echo "</tr>";	
+				$count++;
+			}
+			?>
+		</table>
+	</div>
+</div> 
 </div> 		
 </div> 
 
@@ -247,7 +253,7 @@ include 'head.php';
 
 
 								<b><label for="dttt" style="color: #ff8000">પ્રકાશિત થયેલ લેખની તારીખ:</label></b>
-								<input type="date" id="fdt" name="txtFDt" class="form-control date-picker"  placeholder="પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ પસંદ કરો" oninvalid="setCustomValidity('પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ નાખો')"  onchange="try{setCustomValidity('')}catch(e){}"/>
+								<input type="date" id="fdt" name="txtFDt" class="form-control date-picker"  placeholder="પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ પસંદ કરો" max='<?=date("Y-m-d")?>' oninvalid="setCustomValidity('પ્રકાશિત થયેલ લેખની તારીખ પસંદ કરો')"  onchange="try{setCustomValidity('')}catch(e){}"/>
 							</body>
 						</div>
 						<div class="form-group">
@@ -291,8 +297,8 @@ include 'head.php';
 				<div class="modal-body">
 					<div class="form-group">
 						<body>
-							<b><label for="dttt" style="color: #ff8000">પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ:</label></b>
-							<input type="DATE" id="txtFDt" name="txtFDt" class="form-control date-picker" placeholder="પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ પસંદ કરો"/>
+							<b><label for="dttt" style="color: #ff8000">પ્રકાશિત થયેલ લેખની તારીખ:</label></b>
+							<input type="DATE" id="txtFDt" name="txtFDt" class="form-control date-picker" placeholder="પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ પસંદ કરો" max='<?=date("Y-m-d")?>'/>
 						</body>
 					</div>
 					<div class="form-group">
@@ -423,7 +429,7 @@ include 'head.php';
 		{
 
 			if(form.txtFDt.value == "") {
-				alert("પ્રકાશિત થયેલ લેખનો મહિનો અને વર્ષ પસંદ કરો!");
+				alert("પ્રકાશિત થયેલ લેખની તારીખ પસંદ કરો!");
 				form.txtFDt.focus();
 				return false;
 			}

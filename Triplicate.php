@@ -30,8 +30,8 @@ class mypdf extends TCPDF
    $this->SetFont('shruti','',12);
    $this->cell(20,10,'અ.નં.',1,0,'C');
    $this->cell(80,10,'માલની િવગત',1,0,'C');
-   $this->cell(40,10,'નંગ',1,0,'C');
-   $this->cell(40,10,'દર(રૂિપયા)',1,0,'C');
+   $this->cell(40,10,'એક નકલની િકંમત',1,0,'C');
+   $this->cell(40,10,'ખરીદેલ નકલ',1,0,'C');
    $this->cell(40,10,'પોસ્ટલ ચાર્જ',1,0,'C');
    $this->cell(30,10,'િકંમત(રૂિપયા)',1,0,'C');
    $this->Ln();
@@ -44,15 +44,17 @@ class mypdf extends TCPDF
   while($data=mysqli_fetch_assoc($rs))
   {
     $this->SetFont('shruti','',12);
-    $this->Cell(0, 5, 'કેશ મેમો નં: '.$memono=$data["memo_no"],0, false, 'R', 0, '', 0, false, 'T', 'M');
+    $this->Cell(0, 5, 'કેશમેમો નં: '.$memono=$data["memo_no"],0, false, 'R', 0, '', 0, false, 'T', 'M');
     $this->Ln();
-    $this->Cell(0, 5, 'મેમો ટાઇપ: '.$memotype=$data["memo_type"],0, false, 'R', 0, '', 0, false, 'T', 'M');
+    $this->SetFont('times','',12);
+    $this->Cell(0, 5, 'Memo Type: '.$memotype=$data["memo_type"],0, false, 'R', 0, '', 0, false, 'T', 'M');
     $this->Ln();
+    $this->SetFont('shruti','',12);
     $this->cell(200,10,'નામ: '.$custname=$data["cust_name"],1,0,'L');
     $this->Ln();
     $this->cell(200,10,'સરનામું: '.$addr=$data["cust_addr"],1,0,'L');
     $this->Ln();
-    $this->cell(200,10,'જિલ્લો: '.$dist=$data["district_name"],1,0,'L');
+    $this->cell(200,10,'િજલ્લો : '.$dist=$data["district_name"],1,0,'L');
     $this->Ln();
     $this->cell(200,10,'તાલુકો: '.$taluka=$data["t_name"],1,0,'L');
     $this->Ln();
@@ -75,8 +77,8 @@ function viewTable($con)
     $this->SetFont('shruti','',12);
     $this->cell(80,10,$cu=$data["bname"],1,0,'L');
     $this->SetFont('times','',12);
-    $this->cell(40,10,$qut=$data["book_qut"],1,0,'L');
     $this->cell(40,10,$jt=$data["price"],1,0,'L');
+    $this->cell(40,10,$qut=$data["book_qut"],1,0,'L');
     $this->cell(40,10,$pos=$data["postal_charge"],1,0,'L');
     $this->cell(30,10,$tot=$data["sub_to"],1,0,'L');
     $this->Ln();

@@ -89,7 +89,13 @@ include 'connect.php';
 
 	}
 
-
+function validpass111() {
+    var isValid = false;
+    var regex = /^(?=.{6,})/;
+    isValid = regex.test(document.getElementById("txtpass").value);
+    document.getElementById("passvalllid11").style.display = !isValid ? "block" : "none";
+    return isValid;
+  }
 </script>
 <div class="container" >
 	<div class="jumbotron">
@@ -142,7 +148,12 @@ include 'connect.php';
 											<i id="pass-status1" class="fa fa-eye" aria-hidden="true" onClick="viewPassword22()"></i>
 										</div>
 										<input type="password" name="txtpass" class="form-control"
-										id="txtpass" placeholder="નવો પાસવર્ડ ******" maxlength="30" minlength="4" onkeyup="isalphanum(this)"  >
+										id="txtpass" placeholder="નવો પાસવર્ડ ******" maxlength="30" minlength="4" onkeyup="isalphanum(this)" onchange="return validpass111(this)" >
+									</div>
+									<div class="form-row">
+										<span id="passvalllid11" style="color: red; display: none">
+											<b>*ઓછા માં ઓછા છ મૂળાક્ષર નાખો</b>
+										</span>
 									</div>
 								</div>
 							</div>

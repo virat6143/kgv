@@ -31,7 +31,7 @@ include 'head.php';
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="color:orange">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-           <input type="text" class="form-control" name="date1" id="date1" required/>
+           <input type="text" class="form-control" name="date1" id="date1" oninvalid="this.setCustomValidity('તારીખ પસંદ કરો')" max='<?=date("Y-m-d")?>'  required  onchange="try{setCustomValidity('')}catch(e){}"/>
           </div>
         </div>
       </div>     

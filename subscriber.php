@@ -80,6 +80,24 @@ include 'head.php';
 		}
 	}
 
+
+	function mobileNumber111(){
+
+		var Number = document.getElementById('sub_mob1').value;
+		var IndNum = /^[0]?[6789]\d{9}$/;
+
+		if(IndNum.test(Number)){
+			return;
+		}
+
+		else{
+			alert( "મોબાઇલ નંબર સરખો નાખો.");
+			document.getElementById('sub_mob1').value="";
+			document.getElementById('sub_mob1').focus();
+		}
+	}
+
+
 </script>
 
 <script type="text/javascript">
@@ -175,13 +193,19 @@ include 'head.php';
 				if (isset($_GET["success"]))
 					echo "<div class='alert alert-success alert-dismissible fade show'>
 				        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-				        <strong>અભિનંદન!!! સફ્રતાપૂર્વક માહિતી નંખાઈ ગઈ છે</strong> 
+				        <strong>અભિનંદન!!! સફ્રતાપૂર્વક માહિતી નંખાઈ ગઈ છે.</strong> 
 			   </div>";
 			   if (isset($_GET["arr"]))
 					echo "<div class='alert alert-success alert-dismissible fade show'>
 				        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-				        <strong>અભિનંદન!!! સફ્રતાપૂર્વક સુધારો થઇ ગયો છે</strong> 
+				        <strong>અભિનંદન!!! સફ્રતાપૂર્વક સુધારો થઇ ગયો છે.</strong> 
 			   </div>";
+
+			   if (isset($_GET["delete"]))
+					echo "<div class='alert alert-danger alert-dismissible fade show'>
+				<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				<strong>સફ્રતાપૂર્વક ગ્રાહકની માહિતી રદ્દ થઇ ગઈ છે.</strong> 
+			</div>";
 			?>
 
 			<div class="panel-body">
@@ -531,7 +555,10 @@ include 'head.php';
 						</div>
 						<div class="form-group" style="color: #ff8000">
 							<b><label for="address" style="color: #ff8000">ગ્રાહકનો મોબાઈલ નંબર:</label></b>
-							<input type="text" name="sub_mob" id="sub_mob1" maxlength="10" class="form-control" placeholder="ગ્રાહકનો મોબાઈલ નંબર" onchange="mobileNumber11(this)" autocomplete="off"  onkeypress='validatesub(event)' />
+							<input type="text" name="sub_mob" id="sub_mob1" maxlength="10" class="form-control" placeholder="ગ્રાહકનો મોબાઈલ નંબર" onchange="mobileNumber111(this)" autocomplete="off"  onkeypress='validatesub(event)' />
+
+							<span id="availability1"></span>
+							<span id="submob111" class="text-danger"></span>
 
 						</div>
 
@@ -542,11 +569,11 @@ include 'head.php';
 				</div>
 				<div class="form-group" style="color: #ff8000">
 					<b><label for="pincode" style="color: #ff8000">પિનકોડ:</label></b>
-					<input type="text" name="sub_pincode" id="sub_pincode1" maxlength="6" class="form-control" placeholder="પિનકોડ નાખો" onchange="pincodesub(this)" autocomplete="off"  onkeypress='validatesub(event)'/>
+					<input type="text" name="sub_pincode" id="sub_pincode1" maxlength="6" class="form-control" placeholder="પિનકોડ નાખો" onchange="pincodesub11(this)" autocomplete="off"  onkeypress='validatesub(event)'/>
 				
 				</div>
 				<div class="modal-footer">
-					<input type="submit"  name="સેવ કરો" value="સેવ કરો" class="btn btn-success" />
+					<input type="submit" id="submit22"  name="સેવ કરો" value="સેવ કરો" class="btn btn-success" />
 				</div>
 			</form>
 		  </div>
@@ -600,7 +627,7 @@ include 'head.php';
 <div class="modal fade" id="myModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<form method="POST" action="subscriber1.php" id="subreg" onsubmit="return checkForm(this);">
+			<form method="POST" action="subscriber1.php" id="subscriberr" onsubmit="return checkForm(this);">
 				<div class="modal-header">	
 					<h4 class="modal-title"><span class="badge badge-primary">ગ્રાહકની  માહિતી ભરવાનું પત્રક</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -609,7 +636,7 @@ include 'head.php';
 				<div class="modal-body">
 					<div class="form-group">
 						<b><label for="dt" style="color: #ff8000">તારીખ:</label></b>
-						<input type="date" id="sdatee" name="sdatee"  class="form-control" placeholder="તારીખ પસંદ કરો" value="<?php echo date("d/m/Y") ?>" />
+						<input type="date" id="sdatee" name="sdatee"  class="form-control" placeholder="તારીખ પસંદ કરો" max='<?=date("Y-m-d")?>' />
 					</div>
 
 					<div class="form-group">
@@ -737,7 +764,7 @@ include 'head.php';
 				</div>
 				<div class="modal-footer">
 					<button type="submit" id="submit1" class="btn btn-success" >સેવ કરો</button>
-					<button type="button" class="btn btn-danger" id="can">રદ્દ કરો</button>
+					<button type="button" class="btn btn-danger" id="cancle">રદ્દ કરો</button>
 				</div>
 			</form>
 		</div>
@@ -746,11 +773,6 @@ include 'head.php';
 </div>
 
 <script type="text/javascript">
-
-	$(document).ready(function(){
-		$("#can").click(function(){
-			$("#subreg")[0].reset();
-		});});
 
 	function checkForm(form)
 	{
@@ -813,6 +835,14 @@ include 'head.php';
 		}
 		return true;
 	}
+
+
+$(document).ready(function(){
+		$("#cancle").click(function(){
+			$("#subscriberr")[0].reset();
+		});});
+
+
 
 </script>
 
@@ -926,6 +956,33 @@ include 'head.php';
 
 		});
 	});
+
+		$(document).ready(function(){ 
+		$('#sub_mob1').blur(function(){
+
+			var sub_mob = $(this).val();
+			$.ajax({
+
+				url:'abc.php',
+				method:"POST",
+				data:{user_name:sub_mob},
+				success:function(data)
+				{
+					if(data != '0')
+					{
+						$('#availability1').html('<span class="text-danger">મોબાઈલ નંબર રજીસ્ટર થઇ ચુક્યો છે</span>');
+						$('#submit22').attr("disabled", true);
+					}
+					else
+					{
+						$('#availability1').html('<span class="text-success"></span>');
+						$('#submit22').attr("disabled", false);
+					}
+				}
+			});
+
+		});
+	});
 	function pincodesub(){
 
 		var Number = document.getElementById('sub_pincode').value;
@@ -939,6 +996,23 @@ include 'head.php';
 			alert( "પીનકોડ સરખો નાખો.");
 			document.getElementById('sub_pincode').value="";
 			document.getElementById('sub_pincode').focus();
+		}
+
+	}
+
+	function pincodesub11(){
+
+		var Number = document.getElementById('sub_pincode1').value;
+		var IndNum = /^[3-9][0-9]{5}$/;
+
+		if(IndNum.test(Number)){
+			return;
+		}
+
+		else{
+			alert( "પીનકોડ સરખો નાખો.");
+			document.getElementById('sub_pincode1').value="";
+			document.getElementById('sub_pincode1').focus();
 		}
 
 	}
