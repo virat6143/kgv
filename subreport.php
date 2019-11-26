@@ -36,7 +36,7 @@ include 'head.php';
 
        <div class="modal-footer">
         <div class="row col-sm-12" align="center">
-          <button  class="btn btn-info" name="s1" role="button">સેવ કરો</button>&nbsp;&nbsp;
+          <button  class="btn btn-info" name="s1" role="button">સબમિટ કરો</button>&nbsp;&nbsp;
           <a href="subreport.php" class="btn btn-danger"  role="button" >રદ કરો</a>
         </div>
       </div>

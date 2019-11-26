@@ -81,8 +81,8 @@ include 'head.php';
 						<input type="text" id="myInputTextField">
 					</div> 	
 					<div class="table-wrapper-scroll-y my-custom-scrollbar">			
-					<table class="table table-striped table-bordered" id="example">
-						<thead style='background-color:#00bfff;color:#ffffff';>
+					<table class="table table-striped table-bordered" id="example" cellspacing="6">
+						<thead style='background-color:#00bfff;color:#ffffff;';>
 							<tr>
 								<th>ક્રમ</th>
 								<th>બુક સ્ટોક જમા લીધેલ તારીખ</th>									

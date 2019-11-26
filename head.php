@@ -81,11 +81,11 @@ window.onunload = function (){null};
         </div>
     </div>
  
-   <div class="aau">
+ <!--   <div class="aau">
    <marquee scrollamount="4" behavior="scroll" onmouseout="this.start();" onmouseover="this.stop();" style="overflow-x: hidden; max-width: 100%;background-color: white;height: 40px;padding-top: 10px;"><a href="http://www.aau.in" target="_blank" style="text-decoration:none; color:#81c784;">
        <b>આણંદ કૃષિ યુનિવર્સિટી માં આપણું સ્વાગત છે</b></a></marquee>
-  </div>
-  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+  </div> -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -156,12 +156,12 @@ echo"<li class='nav-item dropdown'>
     if(isset($_SESSION['auname']))
     {
 
-      echo "<li><h5 style='padding-left:80px;margin-top:8px ;font-family:UniversCondensed;color:white'>આપનું સ્વાગત છે શ્રીમાન એડમીન ".$_SESSION['auname']."</h5></li>";
+      echo "<li><h5 style='padding-left:80px;margin-top:8px ;font-family:UniversCondensed;color:orange'> એડમીન ".$_SESSION['auname']."</h5></li>";
     }
     if(isset($_SESSION['uname']))
     {
 
-      echo "<li><h5 style='padding-left:80px;margin-top:8px ;font-family:UniversCondensed;color:white'>આપનું સ્વાગત છે શ્રીમાન ".$_SESSION['uname']."</h5></li>";
+      echo "<li><h5 style='padding-left:90px;margin-top:8px ;font-family:UniversCondensed;color:orange'> શ્રીમાન ".$_SESSION['uname']."</h5></li>";
     }
 
   }

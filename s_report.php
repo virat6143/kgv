@@ -25,7 +25,7 @@ include 'head.php';
 	}  
 </script> -->
 
-<script language="javascript" type="text/javascript">
+<!-- <script language="javascript" type="text/javascript">
 	function printDiv(divID) {
 		
 		var divToPrint = document.getElementById('printablediv');
@@ -43,16 +43,28 @@ include 'head.php';
 		newWin.close();
 
 	}
+</script> -->
+
+<script language="javascript" type="text/javascript">
+	function printDiv(divID) {
+		var printContents = document.getElementById(divID).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		window.print();
+		document.body.innerHTML = originalContents;
+	}
 </script>
+
 <div class="container-fluid"> 
 
 	<div id="printablediv">	
 		<div class="jumbotron" style="background-color:#ffffff" align="center">
-			<h4 class="text-center text-info"><b>આણંદ કૃષિ યુનિવર્સિટી,ડી.ઈ.ઈ,આણંદ.</b></h4>
+			<h4 class="text-center text-dark"><b>આણંદ કૃષિ યુનિવર્સિટી,ડી.ઈ.ઈ,આણંદ.</b></h4>
 			<h4 class="text-center text-info"><b>ગ્રાહક રિપોર્ટ</b></h4>
 
 			<div class="from-group">
 				<?php
+				$date= date("d/m/Y");
 				if(isset($_POST['s1'])){
 					$date11=$_POST['date1'];
 					$date22=$_POST['date2'];
@@ -61,7 +73,7 @@ include 'head.php';
 					$qry1="select * FROM `subscriber` INNER JOIN district on district.d_id=subscriber.sub_district INNER JOIN taluka on taluka.t_id=subscriber.sub_taluka where subscriber.sdatee  BETWEEN '$date11' AND '$date22'";
 
 					$rs1=mysqli_query($con,$qry1);
-
+					echo "<div style='text-align:right;width:73%'><b>તારીખ : ".$date."</b></div>";
 					echo "<table class='table table-bordered'>";
 					echo "<thead style='background-color:orange;color:#000000;'><tr><th>ગ્રાહક નંબર</th><th>ગ્રાહકનું નામ</th><th>લવાજમનો પ્રકાર</th><th>લવાજમ ભર્યાની તારીખ</th><th>લવાજમ પૂરું થવાની તારીખ</th><th>ગ્રાહકનું સરનામું</th><th>ગ્રાહકનો મોબાઈલ નંબર</th><th>જિલ્લો</th><th>તાલુકો</th><th>ગામનું નામ</th><th>પિનકોડ</th></tr></thead>";
 
@@ -93,6 +105,7 @@ include 'head.php';
 	<div class="col-sm-12" align="center" style="margin-bottom:5px">
 		<button type="submit" class="btn btn-success" id="printpagebutton" onclick="javascript:printDiv('printablediv')"><i class="fas fa-print"></i> પ્રિન્ટ</button>
 	</div>
+
 </div>
 <?php
 include"footer.php";

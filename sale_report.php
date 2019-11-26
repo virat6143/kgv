@@ -18,7 +18,7 @@ include 'head.php';
 	}
 
 </style>
-<script language="javascript" type="text/javascript">
+<!-- <script language="javascript" type="text/javascript">
 	function printDiv(divID) {
 		var divToPrint = document.getElementById('printablediv');
 		var htmlToPrint = '' +
@@ -34,7 +34,19 @@ include 'head.php';
 		newWin.print();
 		newWin.close();
 	}
+</script> -->
+
+<script language="javascript" type="text/javascript">
+	function printDiv(divID) {
+		
+		var printContents = document.getElementById(divID).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		window.print();
+		document.body.innerHTML = originalContents;
+	}
 </script>
+
 <div class="container-fluid"> 
 
 	<div id="printablediv">	

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2019 at 05:53 PM
+-- Generation Time: Nov 26, 2019 at 11:24 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -38,7 +38,7 @@ CREATE TABLE `adminlog` (
 --
 
 INSERT INTO `adminlog` (`id`, `username`, `password`, `email`) VALUES
-(1, 'વિરાટ ', '123456', 'viratchaudharycv6143@gmail.com');
+(1, 'વિરાટ ', 'viratk', 'viratchaudharycv6143@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE `adversitment` (
 --
 
 INSERT INTO `adversitment` (`a_id`, `txtFDt`, `cashad`, `pname`, `adinfo`, `adprice`) VALUES
-(23, '2019-11-15', 'DEE:10', 'અશોક ભાઈ', 'પોસ્ટર ૫૦ PX', '1100');
+(25, '2019-11-25', '1', 'વિરાટ', 'પોસ્ટર ', '600');
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`b_id`, `bname`, `bsr`, `bno`, `bbh`, `date`, `bstatus`, `printing`, `p_date`, `total_bookno`, `total_kharch`, `status`) VALUES
-(49, 'સજીવ ખેતી', 'DEE:1410', '100', '60', '15/11/2019', '1', 'prisim printing ', '2019-11-15', '1000', '10000', 0);
+(54, 'સજીવ ખેતી ', 'DEE:1', '99', '60', '25/11/2019', '1', 'પબ્લિકેશન વિભાગ ', '2019-11-25', '150', '1520', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,8 @@ CREATE TABLE `receipt` (
 --
 
 INSERT INTO `receipt` (`r_id`, `r_date`, `memo_type`, `memo_no`, `cust_name`, `cust_village`, `cust_addr`, `cust_mob`, `total_amount`, `cust_dist`, `cust_tal`) VALUES
-(7, '2019-11-21', 'રોકડ', '1', 'રમન ભાઈ ', 'અમદાવાદ ', 'અમદાવાદ ', '8444444444', '350', '1', '1');
+(27, '2019-11-25', 'Cash', '3303', 'રમન ભાઈ ', 'અમદાવાદ ', 'અમદાવાદ ', '8141036462', '540', '1', '1'),
+(28, '2019-11-25', 'Cash', '1111', 'મગન પટેલ ', 'વિસાવદર ', 'વિસાવદર ', '7844444444', '2460', '16', '110');
 
 -- --------------------------------------------------------
 
@@ -188,8 +189,8 @@ CREATE TABLE `receipt_details` (
 --
 
 INSERT INTO `receipt_details` (`rd_id`, `r_id`, `b_id`, `book_qut`, `price`, `sub_to`, `postal_charge`) VALUES
-(13, 7, 49, '2', '60', 120, 0),
-(14, 7, 49, '3', '60', 230, 50);
+(28, 27, 54, '9', '60', 540, 0),
+(29, 28, 54, '41', '60', 2460, 0);
 
 -- --------------------------------------------------------
 
@@ -220,8 +221,7 @@ CREATE TABLE `subscriber` (
 --
 
 INSERT INTO `subscriber` (`sub_id`, `sub_rec`, `sub_no`, `sub_name`, `sub_type`, `sub_start`, `sub_end`, `sub_addr`, `sub_mob`, `sub_district`, `sub_taluka`, `sub_village`, `sub_pincode`, `status`, `sdatee`) VALUES
-(16, '2', '3', 'સંદીપ', '૧ વર્ષ', '2019/11', '2020/10', 'જસદણ  પાવી ', '9855244444', '9', '73', 'પાવી જેતપુર ', '355544', 0, '2019-11-16'),
-(17, '2', '4', 'વિરાટ ચૌધરી ', '૧ વર્ષ', '2019/11', '2020/10', 'સાયરા ', '8141036462', '4', '29', 'સાયરા ', '383315', 0, '2019-11-21');
+(16, '2', '22', 'સંદીપ રાઠવા ', '૫ વર્ષ', '2019/11', '2024/10', 'જસદણ  પાવી ', '8544444444', '9', '73', 'પાવી જેતપુર', '343343', 0, '2019-11-16');
 
 -- --------------------------------------------------------
 
@@ -617,12 +617,12 @@ ALTER TABLE `adminlog`
 -- AUTO_INCREMENT for table `adversitment`
 --
 ALTER TABLE `adversitment`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `district`
 --
@@ -632,17 +632,17 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `receipt_details`
 --
 ALTER TABLE `receipt_details`
-  MODIFY `rd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `rd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `subscriber`
 --
 ALTER TABLE `subscriber`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `taluka`
 --

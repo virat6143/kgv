@@ -269,6 +269,9 @@ include 'head.php';
 				</div>
 				<div class="modal-footer">
 					<input type="submit"  name="સેવ કરો" value="સેવ કરો" class="btn btn-success" />
+					<button type="button" class="btn btn-info" data-dismiss="modal">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i> પાછા જવા
+						</button>
 				</div>
 			</form>
 		</div>
@@ -335,6 +338,9 @@ include 'head.php';
 				<div class="modal-footer">
 					<input type="submit"  name="સેવ કરો" value="સેવ કરો" class="btn btn-success" />
 					<button type="button" class="btn btn-danger" id="cancle">રદ્દ કરો</button>
+					<button type="button" class="btn btn-info" data-dismiss="modal">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i> પાછા જવા
+						</button>
 				</div>
 			</form>
 		</div>

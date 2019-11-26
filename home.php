@@ -5,120 +5,6 @@
 include "connect.php";
 include "head.php";
 ?>
-<style>
-  body {
-    background: #111
-  }
-
-  .caption {
-    overflow: hidden;
-    opacity: .99;
-    position: relative;
-    box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.05);
-    display: inline-block
-  }
-
-  .caption:before {
-    content: '';
-    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
-    width: 100%;
-    height: 50%;
-    opacity: 1;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    z-index: 2;
-    -webkit-transition-property: top, opacity;
-    transition-property: top, opacity;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-  }
-
-  .caption img {
-    display: block;
-    max-width: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  .caption .details {
-    font-size: 1em;
-    line-height: 1.1em;
-    padding: 1em;
-    color: #fff;
-    text-shadow: 0px 0px 3px #000;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-  }
-
-  .caption .details span {
-    display: block;
-    opacity: 1;
-    position: relative;
-    top: 50%;
-    -webkit-transition-property: top, opacity;
-    transition-property: top, opacity;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-  }
-
-  .caption .details .title {
-    line-height: 1em;
-    font-weight: bold;
-    font-size: 1em;
-  }
-
-  .caption .details .info {
-    line-height: 1.2em;
-    margin-top: 0.25em;
-    font-size: 0.8em;
-  }
-
-  @media only screen and (min-width:768px) {
-    .caption .details span {
-      opacity: 1;
-      top: 100px
-    }
-    .caption:before {
-      opacity: 1;
-      top: 100%
-    }
-    .caption:focus:before,
-    .caption:focus span,
-    .caption:hover:before,
-    .caption:hover span {
-      opacity: 1;
-    }
-    .caption:focus:before,
-    .caption:hover:before {
-      top: 50%;
-    }
-    .caption:focus span,
-    .caption:hover span {
-      top: 0;
-    }
-    .caption:focus .title,
-    .caption:hover .title {
-      -webkit-transition-delay: 0.15s;
-      transition-delay: 0.15s;
-    }
-    .caption:focus .info,
-    .caption:hover .info {
-      -webkit-transition-delay: 0.25s;
-      transition-delay: 0.25s;
-    }
-  }
-</style>
-
-
-
-
-
 
 <?php
 $con=mysqli_connect('localhost','root','','psms');
@@ -159,21 +45,45 @@ if ($resulta = mysqli_query($con,$sqla)){
 mysqli_close($con);
 ?>
 
-<div class="alert alert-success">
+<div class="alert alert-info">
  <body>
-   <center><b style="color:black">આંણદ કૃષિ યુનિવર્સિટી દ્વારા  વિવિધ  વિષયો  ઉપર  પ્રકાશીત   કરવામાં આવેલ  પુસ્તકો </b></center>
+   <center><b style="color: orange">મુખ્ય માહિતી</b></center>
  </body>
+</div>
+<div class="container" style="background-color:white">
+  <br>
+  <div class="form-group row col-sm-12">
+    <div class="col-sm-4">
+      <div class="card" style="width: 13rem;height: 11rem;"> 
+         <img class="card-img-top" src="bst.png" alt="Card image cap" style="height: 80%;">
+         <div class="details">
+          <span class="title" style="color: black"><b>હાજર બુક :-<?php echo $rowcount; ?></b></span>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 13rem;height: 11rem;"">
+        <img class="card-img-top" src="sub.png" alt="Card image cap" style="height: 80%;">
+        <div class="details">
+          <span class="title" style="color: black"><b>હાજર કૃષિ ગોવિદ્યા ગ્રાહક:-</b><b><?php echo $rowcount3; ?></b></span>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 13rem;height: 11rem;"">
+      <img class="card-img-top" src="Books-icon.png" alt="Card image cap" style="height: 80%;">
+      <div class="details">
+        <span class="title" style="color: black"><b> ૧૦૦ કરતા ઓછી બુક :-<?php echo $rowcount2; ?></b></span>
+      </div>
+  </div>
+</div>
+</div> 
 </div>
 <div class="row">
   <div class="form-group row col-sm-12">
     <div class="col-sm-6">
      <div class="card" style="height: 300px;width: 520px;background-color: aliceblue">
-       <a href="#" class="caption">
         <img src="aaub.jpg" alt="Los Angeles" width="520" height="300">
-        <div class="details">
-          <span class="title">આંણદ કૃષિ યુનિવર્સિટી ભવન</span>
-        </div>
-      </a>
     </div>
   </div>
   <div class="col-sm-6">
@@ -214,47 +124,6 @@ mysqli_close($con);
    </div>
  </div>
 </div>
-</div>
-<div class="alert alert-info">
- <body>
-   <center><b style="color: orange">મુખ્ય માહિતી</b></center>
- </body>
-</div>
-<div class="container" style="background-color:">
-  <br>
-  <div class="form-group row col-sm-12">
-    <div class="col-sm-4">
-      <div class="card" style="width: 16rem;">
-
-       <a href="#" class="caption">
-         <img class="card-img-top" src="bst.png" alt="Card image cap">
-         <div class="details">
-          <span class="title"><b>હાજર બુક :-<?php echo $rowcount; ?></b></span>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card" style="width: 16rem;">
-      <a href="#" class="caption">
-        <img class="card-img-top" src="sub.png" alt="Card image cap">
-        <div class="details">
-          <span class="title"><b>હાજર કૃષિ ગોવિદ્યા ગ્રાહક:-</b><b><?php echo $rowcount3; ?></b></span>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card" style="width: 16rem;">
-     <a href="#" class="caption">
-      <img class="card-img-top" src="Books-icon.png" alt="Card image cap">
-      <div class="details">
-        <span class="title"><b> ૧૦૦ કરતા ઓછી બુક :-<?php echo $rowcount2; ?></b></span>
-      </div>
-    </a>
-  </div>
-</div>
-</div> 
 </div>
 <br>
 <div class="form-group row col-sm-12">
@@ -386,6 +255,5 @@ mysqli_close($con);
 });
 </script>
 <?php
-//include "address.php";
 include "footer.php";
 ?>

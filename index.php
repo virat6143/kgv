@@ -87,7 +87,7 @@ window.onunload = function (){null};
           <div id="captcha" class="col-sm-3">
           </div>
           <div class="col-sm-6"> 
-            <input type="text" class="form-control" placeholder="abcdef" id="cpatchaTextBox" oninvalid="setCustomValidity('કેપ્ચા નાખો')" required  onchange="try{setCustomValidity('')}catch(e){}" required/>
+            <input type="text" class="form-control"  id="cpatchaTextBox" oninvalid="setCustomValidity('કેપ્ચા નાખો')" required  onchange="try{setCustomValidity('')}catch(e){}" required/>
           </div>
           </div>
         </body>
