@@ -179,7 +179,7 @@ include 'head.php';
 				<input type="text" id="myInputTextField" class="form-control float-right">
 			</div> 	
 		</div>
-		<table class="table table-striped table-bordered" id="example1">
+		<table class="table table-striped table-bordered table-responsive" id="example1">
 			<thead style='background-color:#00bfff;color:#ffffff';>
 				<tr>
 					<th>ક્રમ</th>	

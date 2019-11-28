@@ -1,6 +1,7 @@
 <?php
 include 'connect.php';
 include 'head.php';
+
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -221,7 +222,7 @@ function fill_book($con)
 	<div class="form-group" id="vk" style="display: block;">
 		<b><label for="mno"  style="color:orange" class="col-sm-3">મેમો નંબર</label></b>
 		<div class="col-sm-12">
-			<input type="text" class="form-control" id="memo_no" name="memo_no" placeholder="મેમો નંબર" autocomplete="off" />
+			<input type="text" class="form-control"  id="memo_no" name="memo_no" placeholder="મેમો નંબર" autocomplete="off" />
 		</div>
 	</div>
 	<div class="form-group">
@@ -382,19 +383,19 @@ function fill_book($con)
 	function BookQt(row) 
 	{
 		
-		 var ss=1;
-		 var nn= counter-ss; 
-		 var ii;
-		 var mnn =$('#book_qut'+nn).val();		
-		 var ppp =$('#stock'+nn).val();
+		var ss=1;
+		var nn= counter-ss; 
+		var ii;
+		var mnn =$('#book_qut'+nn).val();		
+		var ppp =$('#stock'+nn).val();
 
-		 if(parseInt(ppp)<parseInt(mnn) ){
-		 	alert('હાજર બુકની સંખ્યા કરતા વધારે છે! ફરી થી નાખો...');
-		 		$('#book_qut'+nn).val('');
-		 		$('#postal_charge'+nn).val('');
-		 		$('#sub_total'+nn).val('');
-		 }
-	
+		if(parseInt(ppp)<parseInt(mnn) ){
+			alert('હાજર બુકની સંખ્યા કરતા વધારે છે! ફરી થી નાખો...');
+			$('#book_qut'+nn).val('');
+			$('#postal_charge'+nn).val('');
+			$('#sub_total'+nn).val('');
+		}
+
 	}
 
 	function calculateSum()

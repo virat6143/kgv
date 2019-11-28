@@ -151,7 +151,7 @@ mysqli_close($con);
       color: white;
     }
   </style>
-  <div class="ancc" style="height: 250px;">
+  <div class="ancc">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-md-6 mt-md-0 mt-5">

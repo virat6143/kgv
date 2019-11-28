@@ -74,7 +74,7 @@ include 'head.php';
 
 					$rs1=mysqli_query($con,$qry1);
 					echo "<div style='text-align:right;width:73%'><b>તારીખ : ".$date."</b></div>";
-					echo "<table class='table table-bordered'>";
+					echo "<table class='table table-bordered table-responsive'>";
 					echo "<thead style='background-color:orange;color:#000000;'><tr><th>ગ્રાહક નંબર</th><th>ગ્રાહકનું નામ</th><th>લવાજમનો પ્રકાર</th><th>લવાજમ ભર્યાની તારીખ</th><th>લવાજમ પૂરું થવાની તારીખ</th><th>ગ્રાહકનું સરનામું</th><th>ગ્રાહકનો મોબાઈલ નંબર</th><th>જિલ્લો</th><th>તાલુકો</th><th>ગામનું નામ</th><th>પિનકોડ</th></tr></thead>";
 
 					while($arr1=mysqli_fetch_assoc($rs1))

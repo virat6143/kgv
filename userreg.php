@@ -458,9 +458,9 @@ function viewPassword2()
       </div>
     </div>
   
-<button type="submit" id="submit11" class="btn btn-success" style="width: 60rem">સેવ કરો</button>
+<button type="submit" id="submit11" class="btn btn-success btn-lg btn-block">સેવ કરો</button>
 </form>
-<button type="cencle" id="cencle" class="btn btn-danger" style="width: 60rem">રદ્દ કરો</button>
+<button type="cencle" id="cencle" class="btn btn-danger btn-lg btn-block">રદ્દ કરો</button>
 
 <div align="right">
 <br>

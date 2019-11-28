@@ -9,7 +9,7 @@
 			$qry=mysqli_query($con,$qr);
 			$count=0;
 			
-			echo"<table class='table table-bordered'>";		
+			echo"<table class='table table-bordered table-responsive'>";		
 			echo"<thead style='background-color:#ff8000;color:#ffffff;'><tr><th>ક્રમ</th><th>યુઝરનું નામ</th><th>મોબઈલ નંબર</th><th>ઈમૈલ </th><th>યુઝરનું સરનામું</th><th>સ્વીકાર કરો</th><th>રદ્દ કરો</th></tr></thead>";
 		   while($ar=mysqli_fetch_assoc($qry))
 			  {

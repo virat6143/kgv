@@ -230,7 +230,7 @@ include 'head.php';
 					</div> 	
 				</div>
 				<div class="table-wrapper-scroll-y my-custom-scrollbar">
-					<table class="table table-striped table-bordered"  id="example">
+					<table class="table table-striped table-bordered table-responsive"  id="example">
 						<thead style='background-color:#00bfff;color:#ffffff';>
 							<tr>
 								<th>ક્રમ</th>							
