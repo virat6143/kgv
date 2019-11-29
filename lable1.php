@@ -29,7 +29,7 @@ include 'head.php';
 			if(isset($_POST['s1'])){
 				$date111=$_POST['date1'];
 				/*$date2=$_POST['date2'];*/
-				$qry = "SELECT * FROM subscriber INNER JOIN district ON district.d_id=subscriber.sub_district where sub_start='$date111'";
+				$qry = "SELECT * FROM subscriber INNER JOIN taluka ON taluka.t_id=subscriber.sub_taluka INNER JOIN district ON district.d_id=subscriber.sub_district where sub_start='$date111'";
 				//echo $qry;
 				$rs=mysqli_query($con,$qry);
                 
@@ -43,12 +43,12 @@ include 'head.php';
 
 						<div class="col-md-<?php echo $bootstrapColWidth; ?>">
 							<div class="thumbnail" style="margin-bottom: 25px;">
-								<?php echo $rows["sub_no"]; ?>/<?php echo $rows["sub_start"]; ?>/<?php echo $rows["sub_type"]; ?>/<?php echo $rows["sub_end"]; ?><br>
-								<?php echo $rows["sub_name"]; ?><br>
-								<b>મુ.પો.</b> <?php echo $rows["sub_village"]; ?><br>
-								<b>જી.</b> <?php echo $rows["district_name"]; ?>-<?php echo $rows["sub_pincode"]; ?><br>
+								<b><?php echo $rows["sub_no"]; ?>/<?php echo $rows["sub_start"]; ?>/<?php echo $rows["sub_rec"]; ?>/<?php echo $rows["sub_type"]; ?>/<?php echo $rows["sub_end"]; ?><br></b>
+								<b><?php echo $rows["sub_name"]; ?><br></b>
+								<b>મુ.પો. <?php echo $rows["sub_village"]; ?> </b>   <b>તા. <?php echo $rows["t_name"]; ?><br></b>
+								<b>જી. <?php echo $rows["district_name"]; ?>-<?php echo $rows["sub_pincode"]; ?><br></b>
 								
-								<b>મો.</b> <?php echo $rows["sub_mob"]; ?><br>
+								<b>મો. <?php echo $rows["sub_mob"]; ?><br></b>
 
 
 							</div>
